@@ -11,7 +11,7 @@ export const Hero: React.FC = () => {
           alt="Golden hour mountain valley" 
           className="w-full h-full object-cover object-center"
         />
-        {/* Overlay Gradient: Deep purple to transparent */}
+        {/* Overlay Gradient: Deep Red/Brown to transparent to match Logo warmth */}
         <div className="absolute inset-0 bg-gradient-to-r from-deep-900/90 via-deep-900/40 to-transparent"></div>
       </div>
 
@@ -21,8 +21,8 @@ export const Hero: React.FC = () => {
             ✨ Discover the extraordinary
           </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 drop-shadow-lg">
-            Yatrasoul — <br/>
-            Travel with <span className="text-travel-400 italic">heart</span>.
+            Yatra Soul — <br/>
+            Travel to <span className="text-brand-orange italic">peace</span>.
           </h1>
           <p className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-lg">
             Handcrafted itineraries designed for the modern adventurer. Create unforgettable memories with our premium curated packages.

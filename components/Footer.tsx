@@ -8,10 +8,11 @@ export const Footer: React.FC = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
              <div className="flex items-center gap-2 mb-6 text-white">
-               <span className="text-2xl font-bold">Yatrasoul</span>
+               <img src="/assets/logo.png" alt="Yatra Soul" className="h-10 w-auto bg-white/10 rounded-lg p-1" />
+               <span className="text-2xl font-bold">Yatra Soul</span>
              </div>
              <p className="text-gray-400 text-sm leading-relaxed mb-6">
-               Crafting unforgettable journeys with heart and soul. We believe travel is more than just sightseeing; it's about connection.
+               Crafting unforgettable journeys with heart and soul. We believe travel is more than just sightseeing; it's about connection and peace.
              </p>
              <div className="flex gap-4">
                {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
@@ -66,7 +67,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Yatrasoul Inc. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Yatra Soul Inc. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white">Privacy Policy</a>
             <a href="#" className="hover:text-white">Terms of Service</a>

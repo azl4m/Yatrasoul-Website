@@ -4,22 +4,24 @@ import { Package } from '../types';
 
 export const generateQuotePDF = (pkg: Package, customerName: string) => {
   const doc = new jsPDF();
-  const primaryColor = [162, 28, 175]; // travel-700
+  const primaryColor = [220, 38, 38]; // travel-600 (Red)
   
   // Header
-  doc.setFillColor(253, 244, 255); // travel-50
+  doc.setFillColor(255, 241, 242); // travel-50 (Light Red)
   doc.rect(0, 0, 210, 40, 'F');
   
-  doc.setTextColor(162, 28, 175);
+  doc.setTextColor(220, 38, 38);
   doc.setFontSize(22);
   doc.setFont('helvetica', 'bold');
-  doc.text('Yatrasoul', 20, 20);
+  doc.text('Yatra Soul', 20, 20);
   
-  doc.setTextColor(100, 100, 100);
+  doc.setTextColor(139, 69, 19); // Brown for tagline
   doc.setFontSize(10);
-  doc.setFont('helvetica', 'normal');
-  doc.text('Travel with heart', 20, 26);
+  doc.setFont('helvetica', 'italic');
+  doc.text('travel to peace', 20, 26);
 
+  doc.setTextColor(100, 100, 100);
+  doc.setFont('helvetica', 'normal');
   doc.text('Contact: hello@yatrasoul.com', 150, 18);
   doc.text('+1 (555) 123-4567', 150, 23);
   doc.text('www.yatrasoul.com', 150, 28);
@@ -37,7 +39,7 @@ export const generateQuotePDF = (pkg: Package, customerName: string) => {
   doc.text(`Duration: ${pkg.duration}`, 20, 74);
   
   // Pricing Badge logic equivalent
-  doc.setFillColor(162, 28, 175);
+  doc.setFillColor(220, 38, 38);
   doc.roundedRect(150, 50, 40, 20, 2, 2, 'F');
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(14);
@@ -90,7 +92,7 @@ export const generateQuotePDF = (pkg: Package, customerName: string) => {
   doc.setFontSize(8);
   doc.setTextColor(150, 150, 150);
   doc.text('Terms & Conditions Apply. Prices valid for 7 days from quotation date.', 105, pageHeight - 20, { align: 'center' });
-  doc.text('Yatrasoul Inc. | 123 Adventure Blvd, Wanderlust City', 105, pageHeight - 15, { align: 'center' });
+  doc.text('Yatra Soul Inc. | 123 Adventure Blvd, Wanderlust City', 105, pageHeight - 15, { align: 'center' });
 
-  doc.save(`Yatrasoul_Quote_${pkg.slug}.pdf`);
+  doc.save(`YatraSoul_Quote_${pkg.slug}.pdf`);
 };

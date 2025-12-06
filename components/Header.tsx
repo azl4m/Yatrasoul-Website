@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Globe, Moon, Sun } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 
 interface HeaderProps {
   isDarkMode: boolean;
@@ -22,21 +22,26 @@ export const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleTheme }) => {
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm shadow-md py-3' 
-          : 'bg-transparent py-5'
+          ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm shadow-md py-2' 
+          : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#" className="flex items-center gap-2 group">
-          <div className="bg-travel-600 p-2 rounded-lg text-white group-hover:bg-travel-700 transition-colors">
-            <Globe size={24} />
-          </div>
-          <div className="flex flex-col">
-            <span className={`text-xl font-bold leading-none ${isScrolled ? 'text-gray-800 dark:text-white' : 'text-white'}`}>
-              Yatrasoul
-            </span>
-            <span className={`text-xs font-medium tracking-wider ${isScrolled ? 'text-travel-600 dark:text-travel-400' : 'text-travel-200'}`}>
-              TRAVEL WITH HEART
+          <img 
+            src="/assets/logo.png" 
+            alt="Yatra Soul Logo" 
+            className="h-12 w-auto object-contain drop-shadow-sm"
+            onError={(e) => {
+              // Fallback if image not found
+              e.currentTarget.style.display = 'none';
+              e.currentTarget.nextElementSibling?.classList.remove('hidden');
+            }}
+          />
+          {/* Fallback Text in case logo image is missing */}
+          <div className="hidden flex-col">
+            <span className={`text-2xl font-bold leading-none ${isScrolled ? 'text-gray-800 dark:text-white' : 'text-white'}`}>
+              Yatra<span className="text-travel-600">Soul</span>
             </span>
           </div>
         </a>
@@ -48,7 +53,7 @@ export const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleTheme }) => {
               key={item} 
               href={`#${item.toLowerCase().replace(' ', '-')}`}
               className={`font-medium hover:text-travel-500 transition-colors ${
-                isScrolled ? 'text-gray-600 dark:text-gray-300' : 'text-white/90'
+                isScrolled ? 'text-gray-600 dark:text-gray-300' : 'text-white/90 shadow-black/10 text-shadow-sm'
               }`}
             >
               {item}
