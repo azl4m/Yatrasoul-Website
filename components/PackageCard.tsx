@@ -61,12 +61,21 @@ export const PackageCard: React.FC<PackageCardProps> = ({ pkg, onViewDetails, on
           >
             View Details
           </button>
-          <button 
+          {/* <button 
             onClick={() => onDownload(pkg)}
             className="px-4 py-2.5 bg-travel-50 dark:bg-travel-900/20 text-travel-700 dark:text-travel-300 hover:bg-travel-100 dark:hover:bg-travel-900/40 border border-travel-100 dark:border-travel-800 font-semibold rounded-lg text-sm transition-colors flex items-center justify-center gap-2"
           >
             Download PDF
-          </button>
+          </button> */}
+         <button
+  onClick={() => {
+    const el = document.getElementById("contact");
+    el?.scrollIntoView({ behavior: "smooth" });
+  }}
+  className="px-4 py-2.5 bg-travel-50 dark:bg-travel-900/20 text-travel-700 dark:text-travel-300 hover:bg-travel-100 dark:hover:bg-travel-900/40 border border-travel-100 dark:border-travel-800 font-semibold rounded-lg text-sm transition-colors flex items-center justify-center gap-2"
+>
+  Book Now
+</button>
         </div>
       </div>
     </div>

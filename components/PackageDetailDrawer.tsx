@@ -59,9 +59,13 @@ export const PackageDetailDrawer: React.FC<PackageDetailDrawerProps> = ({
                 </h2>
                 <div className="flex items-center gap-2 text-white/90">
                   <span className="text-2xl font-semibold">
-                   {pkg.priceFrom === 0 ? "Price on Request" : `$${pkg.priceFrom}`}
+                    {pkg.priceFrom === 0
+                      ? "Price on Request"
+                      : `$${pkg.priceFrom}`}
                   </span>
-                  <span className="text-sm opacity-80">{pkg.priceFrom === 0 ? "" : `Per Person`}</span>
+                  <span className="text-sm opacity-80">
+                    {pkg.priceFrom === 0 ? "" : `Per Person`}
+                  </span>
                 </div>
               </div>
             </div>
@@ -164,12 +168,16 @@ export const PackageDetailDrawer: React.FC<PackageDetailDrawerProps> = ({
             {/* CTA */}
             <div className="pt-6 border-t border-gray-100 dark:border-slate-800 flex flex-col gap-3">
               <button
-                onClick={() => onDownload(pkg)}
+                onClick={() => {
+                  const el = document.getElementById("contact");
+                  onClose()
+                  el?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="w-full py-4 bg-travel-600 hover:bg-travel-700 text-white font-bold rounded-xl shadow-lg shadow-travel-600/20 transition-all active:scale-95 flex items-center justify-center gap-2"
               >
-                <Download size={20} />
-                Download Official Quote (PDF)
+                Book Now
               </button>
+
               <p className="text-center text-xs text-gray-400 dark:text-gray-500">
                 *Prices are subject to availability. {pkg.terms}
               </p>

@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleTheme }) => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#" className="flex items-center gap-2 group">
           <img 
-            src="/assets/logo.png" 
+            src="/assets/Logojpg-removebg-previewdummy.png" 
             alt="Yatra Soul Logo" 
             className="h-12 w-auto object-contain drop-shadow-sm"
             onError={(e) => {
@@ -48,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleTheme }) => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {['Destinations', 'Packages', 'About Us', 'Blog'].map((item) => (
+          {['Destinations', 'Packages'].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase().replace(' ', '-')}`}

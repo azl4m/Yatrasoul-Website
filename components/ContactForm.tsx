@@ -17,17 +17,44 @@ export const ContactForm: React.FC<ContactFormProps> = ({ packages }) => {
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('submitting');
-    
-    // Simulate API call
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', phone: '', packageId: '', date: '', message: '' });
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 1500);
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setStatus("submitting");
+
+  try {
+    const res = await fetch("https://formsubmit.co/sales@yatrasoul.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        Name: formData.name,
+        Email: formData.email,
+        Phone: formData.phone,
+        Package: formData.packageId,
+        Date: formData.date,
+        Message: formData.message,
+      }),
+    });
+
+    if (res.ok) {
+      setStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        packageId: "",
+        date: "",
+        message: "",
+      });
+      setTimeout(() => setStatus("idle"), 5000);
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Failed to send message. Try again.");
+  }
+};
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
