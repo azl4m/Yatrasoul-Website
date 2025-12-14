@@ -21,14 +21,16 @@ export const PackageCard: React.FC<PackageCardProps> = ({ pkg, onViewDetails, on
         />
         {/* Price Badge */}
         <div className="absolute top-4 right-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur shadow-lg px-4 py-2 rounded-xl text-center z-10">
-          <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">From</p>
-          <p className="text-travel-700 dark:text-travel-400 font-bold text-lg leading-none">${pkg.priceFrom}</p>
+          {/* <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">From</p> */}
+<p className="text-travel-700 dark:text-travel-400 font-bold text-lg leading-none">
+  {pkg.priceFrom === 0 ? "Price on Request" : `$${pkg.priceFrom}`}
+</p>
         </div>
         
         {/* Category Tag */}
-        <div className="absolute bottom-4 left-4 bg-deep-900/80 backdrop-blur text-white px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+        {/* <div className="absolute bottom-4 left-4 bg-deep-900/80 backdrop-blur text-white px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
           <MapPin size={12} /> {pkg.category}
-        </div>
+        </div> */}
       </div>
 
       {/* Content */}

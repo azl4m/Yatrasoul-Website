@@ -1,6 +1,6 @@
-import React from 'react';
-import { Package } from '../types';
-import { X, CheckCircle2, XCircle, Download, Calendar } from 'lucide-react';
+import React from "react";
+import { Package } from "../types";
+import { X, CheckCircle2, XCircle, Download, Calendar } from "lucide-react";
 
 interface PackageDetailDrawerProps {
   pkg: Package | null;
@@ -9,22 +9,33 @@ interface PackageDetailDrawerProps {
   onDownload: (pkg: Package) => void;
 }
 
-export const PackageDetailDrawer: React.FC<PackageDetailDrawerProps> = ({ pkg, isOpen, onClose, onDownload }) => {
+export const PackageDetailDrawer: React.FC<PackageDetailDrawerProps> = ({
+  pkg,
+  isOpen,
+  onClose,
+  onDownload,
+}) => {
   if (!pkg) return null;
 
   return (
     <>
       {/* Backdrop */}
-      <div 
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      <div
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transition-opacity duration-300 ${
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
         onClick={onClose}
       />
-      
+
       {/* Drawer */}
-      <div className={`fixed inset-y-0 right-0 w-full md:w-[600px] bg-white dark:bg-slate-900 z-50 shadow-2xl transform transition-transform duration-300 ease-out overflow-y-auto ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div
+        className={`fixed inset-y-0 right-0 w-full md:w-[600px] bg-white dark:bg-slate-900 z-50 shadow-2xl transform transition-transform duration-300 ease-out overflow-y-auto ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
         <div className="relative">
           {/* Close Button */}
-          <button 
+          <button
             onClick={onClose}
             className="absolute top-4 right-4 z-10 p-2 bg-white/20 backdrop-blur-md text-white hover:bg-white/30 rounded-full transition-colors"
           >
@@ -33,16 +44,24 @@ export const PackageDetailDrawer: React.FC<PackageDetailDrawerProps> = ({ pkg, i
 
           {/* Header Image */}
           <div className="h-64 md:h-80 w-full relative">
-            <img src={pkg.image} alt={pkg.name} className="w-full h-full object-cover" />
+            <img
+              src={pkg.image}
+              alt={pkg.name}
+              className="w-full h-full object-cover"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
               <div className="text-white">
                 <span className="bg-travel-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-3 inline-block">
                   {pkg.duration}
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-2">{pkg.name}</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                  {pkg.name}
+                </h2>
                 <div className="flex items-center gap-2 text-white/90">
-                  <span className="text-2xl font-semibold">${pkg.priceFrom}</span>
-                  <span className="text-sm opacity-80">per person</span>
+                  <span className="text-2xl font-semibold">
+                   {pkg.priceFrom === 0 ? "Price on Request" : `$${pkg.priceFrom}`}
+                  </span>
+                  <span className="text-sm opacity-80">{pkg.priceFrom === 0 ? "" : `Per Person`}</span>
                 </div>
               </div>
             </div>
@@ -71,7 +90,9 @@ export const PackageDetailDrawer: React.FC<PackageDetailDrawerProps> = ({ pkg, i
                       )}
                     </div>
                     <div className="pb-6 pt-1">
-                      <p className="text-gray-700 dark:text-gray-300 font-medium">{day}</p>
+                      <p className="text-gray-700 dark:text-gray-300 font-medium">
+                        {day}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -87,7 +108,10 @@ export const PackageDetailDrawer: React.FC<PackageDetailDrawerProps> = ({ pkg, i
                 </h4>
                 <ul className="space-y-2">
                   {pkg.inclusions.map((item, i) => (
-                    <li key={i} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                    <li
+                      key={i}
+                      className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2"
+                    >
                       <span className="text-green-500 mt-0.5">•</span>
                       {item}
                     </li>
@@ -101,7 +125,10 @@ export const PackageDetailDrawer: React.FC<PackageDetailDrawerProps> = ({ pkg, i
                 </h4>
                 <ul className="space-y-2">
                   {pkg.exclusions.map((item, i) => (
-                    <li key={i} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                    <li
+                      key={i}
+                      className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2"
+                    >
                       <span className="text-red-400 mt-0.5">•</span>
                       {item}
                     </li>
@@ -109,10 +136,34 @@ export const PackageDetailDrawer: React.FC<PackageDetailDrawerProps> = ({ pkg, i
                 </ul>
               </div>
             </div>
+            {/* ⭐⭐⭐ Upgradable Options Section ⭐⭐⭐ */}
+            {pkg.upgrades && pkg.upgrades.length > 0 && (
+              <div className="bg-blue-50/50 dark:bg-blue-900/20 p-6 rounded-2xl">
+                <h4 className="font-bold text-blue-800 dark:text-blue-400 mb-4 flex items-center gap-2">
+                  <CheckCircle2
+                    size={18}
+                    className="text-blue-600 dark:text-blue-300"
+                  />
+                  Soul Upgrades
+                </h4>
+
+                <ul className="space-y-2">
+                  {pkg.upgrades.map((item, i) => (
+                    <li
+                      key={i}
+                      className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2"
+                    >
+                      <span className="text-blue-500 mt-0.5">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* CTA */}
             <div className="pt-6 border-t border-gray-100 dark:border-slate-800 flex flex-col gap-3">
-              <button 
+              <button
                 onClick={() => onDownload(pkg)}
                 className="w-full py-4 bg-travel-600 hover:bg-travel-700 text-white font-bold rounded-xl shadow-lg shadow-travel-600/20 transition-all active:scale-95 flex items-center justify-center gap-2"
               >

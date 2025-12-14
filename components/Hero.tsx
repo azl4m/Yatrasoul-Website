@@ -7,7 +7,7 @@ export const Hero: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://picsum.photos/seed/travelsoul-hero/1920/1080" 
+          src="../assets/Gemini_Generated_Image_mjifixmjifixmjif.png" 
           alt="Golden hour mountain valley" 
           className="w-full h-full object-cover object-center"
         />
@@ -17,11 +17,11 @@ export const Hero: React.FC = () => {
 
       <div className="container mx-auto px-4 z-10 relative h-full flex flex-col justify-center">
         <div className="max-w-2xl text-white pt-20">
-          <div className="inline-block px-4 py-1.5 mb-6 border border-travel-300/30 rounded-full bg-white/10 backdrop-blur-md text-travel-100 text-sm font-medium tracking-wide">
+          {/* <div className="inline-block px-4 py-1.5 mb-6 border border-travel-300/30 rounded-full bg-white/10 backdrop-blur-md text-travel-100 text-sm font-medium tracking-wide">
             ✨ Discover the extraordinary
-          </div>
+          </div> */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 drop-shadow-lg">
-            Yatra Soul — <br/>
+            Yatra Soul <br/>
             Travel to <span className="text-brand-orange italic">peace</span>.
           </h1>
           <p className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-lg">

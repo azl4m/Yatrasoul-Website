@@ -12,7 +12,8 @@ export interface Package {
   inclusions: string[];
   exclusions: string[];
   terms: string;
-  category: 'Beach' | 'Mountain' | 'Culture' | 'City' | 'Luxury' | 'Safari';
+  upgrades: string[];
+  // category: 'Beach' | 'Mountain' | 'Culture' | 'City' | 'Luxury' | 'Safari';
 }
 
 export interface QuoteRequest {
