@@ -22,7 +22,7 @@ export const SocialFeed: React.FC = () => {
             </h2>
             <p className="text-gray-500 dark:text-gray-400">Follow us for live trip stories and daily inspiration.</p>
           </div>
-          <a href="#" className="hidden sm:flex items-center gap-1 text-travel-600 dark:text-travel-400 font-semibold hover:text-travel-700 dark:hover:text-travel-300">
+          <a href="https://www.instagram.com/yatra___soul?igsh=YmV4MHlobWY4ZW9i" className="hidden sm:flex items-center gap-1 text-travel-600 dark:text-travel-400 font-semibold hover:text-travel-700 dark:hover:text-travel-300">
             View Profile <ArrowRight size={18} />
           </a>
         </div>
