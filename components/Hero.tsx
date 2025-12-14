@@ -1,13 +1,12 @@
 import React from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
-
 export const Hero: React.FC = () => {
   return (
     <section className="relative h-screen min-h-[600px] w-full flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="../assets/Gemini_Generated_Image_mjifixmjifixmjif.png" 
+          src='/assets/heroImg.png' 
           alt="Golden hour mountain valley" 
           className="w-full h-full object-cover object-center"
         />
