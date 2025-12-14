@@ -103,7 +103,7 @@ export const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleTheme }) => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="absolute top-full left-0 w-full bg-white dark:bg-slate-900 shadow-xl border-t border-gray-100 dark:border-slate-800 p-4 flex flex-col gap-4 md:hidden">
-          {['Destinations', 'Packages', 'About Us', 'Blog'].map((item) => (
+          {['Destinations', 'Packages'].map((item) => (
             <a 
               key={item} 
               href="#" 
