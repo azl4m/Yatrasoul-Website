@@ -18,7 +18,7 @@ export const SocialFeed: React.FC = () => {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2 mb-2">
               <Instagram className="text-travel-600" />
-              @yatrasoul_official
+              @yatra___soul
             </h2>
             <p className="text-gray-500 dark:text-gray-400">Follow us for live trip stories and daily inspiration.</p>
           </div>
